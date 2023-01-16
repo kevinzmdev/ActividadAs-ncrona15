@@ -1,0 +1,50 @@
+<section class="container py-5 h-100">
+    <section class="row d-flex justify-content-center align-items-center h-100">
+        <section class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <section>
+                <table class="table table-hover-ligth border border-primary 2">
+                    <thead class="bg-primary text-white">
+                        <tr class="text-center">
+                            <th>Item</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Carrera</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr *ngFor="let item of estudiante; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ item.nombre }}</td>
+                            <td>{{ item.apellidos }}</td>
+                            <td>{{ item.carrera }}</td>
+                            <td><button class="btn btn-danger" (click)="Eliminar(i)"><i class="fa-solid fa-trash"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="card shadow-2-strong" style="border-radius: 1rem">
+                <section class="card-body p-4">
+                    <h3 class="text-center p-3">Formulario de Registro</h3>
+                    <section class="form-group m-3">
+                        <label for="nombre"><b>Nombre:</b></label>
+                        <input class="form-control" type="text" name="nombre" [(ngModel)]="nombre"/>
+                    </section>
+                    <section class="form-group m-3">
+                        <label for="apellidos"><b>Apellidos:</b></label>
+                        <input class="form-control" type="text" name="apellidos" [(ngModel)]="apellidos"/>
+                    </section>
+                    <section class="form-group m-3">
+                        <label for="carrera"><b>Carrera:</b></label>
+                        <input class="form-control" type="text" name="carrera" [(ngModel)]="carrera"/>
+                    </section>
+
+                    <section class="text-center m-3">
+                        <input class="btn btn-primary" type="button"value="Guardar" (click)="insertarDatos()" [ngClass]="nombre && apellidos && carrera ? 'activo' : 'inactivo'">
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
